@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2021": true },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    "dist", ".eslintrc.json"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "settings": { "react": { "version": "detect" } },
+  "plugins": [
+    "unused-imports"
+  ],
+  "rules": {
+    "indent": "off",
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-var": "warn",
+    "eqeqeq": "error",
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "linebreak-style": ["error", "unix"],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "arrow-parens": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "brace-style": "error",
+    "object-curly-spacing": ["error", "always"],
+    "template-curly-spacing": "error",
+    "prefer-const": "error",
+    "prefer-arrow-callback": "error",
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "unused-imports/no-unused-imports": "error",
+    "react/jsx-no-target-blank": "off"
+  }
+}
