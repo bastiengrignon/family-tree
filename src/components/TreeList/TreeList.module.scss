@@ -1,0 +1,14 @@
+.treeLink {
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--mantine-color-gray-7);
+
+  &:hover {
+    color: var(--mantine-color-gray-5);
+  }
+}
+
+.iconLock {
+  transform: rotate(-15deg);
+}

@@ -1,0 +1,12 @@
+.userMenu {
+  border-radius: var(--mantine-radius-xl);
+  transition: background-color 100ms ease;
+
+  &:hover {
+    background-color: var(--mantine-color-gray-2);
+  }
+}
+
+.userMenuActive {
+  background-color: var(--mantine-color-gray-2) !important;
+}

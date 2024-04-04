@@ -1,15 +1,8 @@
 {
   "root": true,
-  "env": { "browser": true, "es2021": true },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier"
-  ],
-  "ignorePatterns": [
-    "dist", ".eslintrc.json"
-  ],
+  "env": { "browser": true, "es2021": true, "node": true },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended", "prettier"],
+  "ignorePatterns": ["dist", ".eslintrc.json"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -18,9 +11,7 @@
     "sourceType": "module"
   },
   "settings": { "react": { "version": "detect" } },
-  "plugins": [
-    "unused-imports"
-  ],
+  "plugins": ["unused-imports", "import"],
   "rules": {
     "indent": "off",
     "no-console": "warn",
@@ -40,6 +31,25 @@
     "prefer-arrow-callback": "error",
     "comma-spacing": ["error", { "before": false, "after": true }],
     "unused-imports/no-unused-imports": "error",
-    "react/jsx-no-target-blank": "off"
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [["builtin", "external"], "internal", "unknown", ["parent", "sibling"], "index"],
+        "pathGroups": [
+          { "pattern": "^react", "group": "external", "position": "before" },
+          { "pattern": "@mantine/**", "group": "external", "position": "after" },
+          { "pattern": "@pages/**", "group": "internal", "position": "before" },
+          { "pattern": "@components/**", "group": "internal" },
+          { "pattern": "@lib/**", "group": "internal" },
+          { "pattern": "@constants/**", "group": "unknown" },
+          { "pattern": "@store/**", "group": "unknown" }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "react/jsx-no-target-blank": "off",
+    "react/prop-types": "off"
   }
 }
