@@ -49,7 +49,7 @@ const ResetPassword = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const hashParams = new URLSearchParams(window.location.hash.substring(1));
-      console.log({ hashParams });
+      // console.log({ hashParams });
       setAccessToken(hashParams.get('access_token') || '');
       setRefreshToken(hashParams.get('refresh_token') || '');
     }
