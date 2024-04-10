@@ -7,6 +7,8 @@ import Layout from '@pages/Layout';
 import ResetPassword from '@pages/ResetPassword';
 import Tree from '@pages/Tree';
 
+import ErrorBoundary from '@components/ErrorBoundary/index.jsx';
+
 export const routersPath = {
   home: '/',
   account: '/account',
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+    errorElement: <ErrorBoundary />,
   },
 ]);
 

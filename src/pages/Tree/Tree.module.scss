@@ -3,3 +3,12 @@
 .treeContainer {
   height: 80dvh;
 }
+
+.graphContainer {
+  position: relative;
+  height: 100%;
+  margin-top: var(--mantine-spacing-xs);
+  border-radius: var(--mantine-radius-md);
+  border: 1px solid var(--mantine-color-blue-2);
+  box-shadow: var(--mantine-shadow-md);
+}

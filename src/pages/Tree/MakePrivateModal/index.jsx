@@ -1,3 +1,4 @@
+import { IconLock, IconLockOpen } from '@tabler/icons-react';
 import React from 'react';
 
 import { Button, Modal, Stack, Text, TextInput } from '@mantine/core';
@@ -13,7 +14,11 @@ const MakePrivateModal = ({ opened, onClose, code }) => {
         <Stack>
           <Text c="dimmed">{TreeConstants.modalMakePrivate.description}</Text>
           <TextInput label={TreeConstants.modalMakePrivate.inputCodeLabel} {...makePrivateForm.getInputProps('code')} />
-          <Button type="submit">
+          <Button
+            type="submit"
+            rightSection={
+              makePrivateForm.values.code?.length === 0 ? <IconLockOpen size={20} /> : <IconLock size={20} />
+            }>
             {makePrivateForm.values.code?.length === 0
               ? TreeConstants.modalMakePrivate.buttonMakePublic
               : TreeConstants.modalMakePrivate.buttonMakePrivate}

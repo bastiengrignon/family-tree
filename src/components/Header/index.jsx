@@ -33,7 +33,14 @@ const Header = ({ session }) => {
             <Menu.Target>
               <UnstyledButton className={cx(classes.userMenu, { [classes.userMenuActive]: userMenuOpened })}>
                 <Group gap="xs" p="xs">
-                  <Avatar src={user.avatarUrl} alt={user.fullName} radius="xl" size="sm" color="blue" />
+                  <Avatar
+                    variant="gradient"
+                    src={user.avatarUrl}
+                    alt={user.fullName}
+                    radius="xl"
+                    size="sm"
+                    color="blue"
+                  />
                   <Text fw={500} size="sm">
                     {user.fullName}
                   </Text>

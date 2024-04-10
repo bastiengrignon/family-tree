@@ -4,6 +4,7 @@ import classes from './global.module.scss';
 
 const theme = createTheme({
   primaryColor: 'blue',
+  cursorType: 'pointer',
   components: {
     TextInput: {
       defaultProps: {

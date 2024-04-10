@@ -5,6 +5,7 @@ export const useTreeModalHooks = () => {
   const [openedUnauthorizedModal, { open: openUnauthorizedModal, close: closeUnauthorizedModal }] =
     useDisclosure(false);
   const [openedMakePrivateModal, { open: openMakePrivateModal, close: closeMakePrivateModal }] = useDisclosure(false);
+  const [openedAddUserModal, { open: openAddUserModal, close: closeAddUserModal }] = useDisclosure(false);
 
   return {
     openedTreeMembersModal,
@@ -16,5 +17,8 @@ export const useTreeModalHooks = () => {
     openedMakePrivateModal,
     closeMakePrivateModal,
     openMakePrivateModal,
+    openedAddUserModal,
+    openAddUserModal,
+    closeAddUserModal,
   };
 };

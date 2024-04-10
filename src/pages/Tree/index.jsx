@@ -6,6 +6,7 @@ import {
   IconSettings,
   IconShare,
   IconTrash,
+  IconUserPlus,
   IconUsers,
 } from '@tabler/icons-react';
 import React from 'react';
@@ -13,10 +14,13 @@ import { Link } from 'react-router-dom';
 
 import { ActionIcon, Button, Card, Flex, Menu } from '@mantine/core';
 
+import AddUserModal from '@pages/Tree/AddUserModal/index.jsx';
+
 import ConditionalInput from '@components/ConditionalInput';
 
 import MakePrivateModal from './MakePrivateModal';
 import { BACK_BUTTON_LABEL, TreeConstants } from './Tree.constants';
+import { useTreeGraphHooks } from './Tree.graphHooks';
 import { useTreeHooks } from './Tree.hooks';
 import { useTreeModalHooks } from './Tree.modalHooks';
 import classes from './Tree.module.scss';
@@ -35,10 +39,15 @@ const Tree = () => {
     openedMakePrivateModal,
     closeMakePrivateModal,
     openMakePrivateModal,
+    openedAddUserModal,
+    openAddUserModal,
+    closeAddUserModal,
   } = useTreeModalHooks();
   const { tree, updateTreeName, treeMembers, admin, isAdmin, isPublicTree, copyToClipboard } = useTreeHooks({
     openUnauthorizedModal,
   });
+
+  const { graphRef, width, height } = useTreeGraphHooks();
 
   return (
     <>
@@ -92,8 +101,18 @@ const Tree = () => {
       </Flex>
       <ConditionalInput name={tree.name} onSave={updateTreeName} editable={isAdmin} />
 
-      <Card padding="xs" mt="md" className={classes.treeContainer} id="treeGraph">
-        Test
+      <Card padding="xs" mt="md" className={classes.treeContainer} withBorder>
+        <Flex>
+          <Button size="xs" rightSection={<IconUserPlus size={16} />} onClick={openAddUserModal}>
+            Ajouter une personne
+          </Button>
+        </Flex>
+        <div className={classes.graphContainer} ref={graphRef} style={{ width: width - 70, height: height - 200 }}>
+          <div
+            id="toolbarID"
+            style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', height: 'auto', width: 225 }}
+          />
+        </div>
       </Card>
 
       <UnAuthorizedModal opened={openedUnauthorizedModal} onClose={closeUnauthorizedModal} />
@@ -104,6 +123,7 @@ const Tree = () => {
         adminId={admin}
       />
       <MakePrivateModal opened={openedMakePrivateModal} onClose={closeMakePrivateModal} code={tree.code} />
+      <AddUserModal opened={openedAddUserModal} onClose={closeAddUserModal} />
     </>
   );
 };

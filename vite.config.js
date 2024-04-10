@@ -9,6 +9,7 @@ export const aliases = {
   '@constants': resolve(__dirname, './src/constants'),
   '@lib': resolve(__dirname, './src/lib'),
   '@store': resolve(__dirname, './src/store'),
+  '@hooks': resolve(__dirname, './src/hooks'),
 };
 
 export default defineConfig({
@@ -39,7 +40,9 @@ export default defineConfig({
           if (id.includes('react-router-dom') || id.includes('@remix-run') || id.includes('react-router')) {
             return 'react-router';
           }
-          return 'vendor';
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         },
       },
     },
